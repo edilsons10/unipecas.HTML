@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UniPeças - Previsão de Demanda</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>UniPeças - Sistema de Previsão de Demanda</h1>
+  </header>
+
+  <section id="cadastro-section">
+    <h2>Cadastrar Produto / Demanda</h2>
+    <form id="form-cadastro-produto">
+      <label for="produto-nome">Nome do Produto:</label>
+      <input type="text" id="produto-nome" name="produtoNome" required />
+      <label for="produto-codigo">Código do Produto:</label>
+      <input type="text" id="produto-codigo" name="produtoCodigo" required />
+      <label for="quantidade">Quantidade:</label>
+      <input type="number" id="quantidade" name="quantidade" required />
+      <label for="data">Data de Registro:</label>
+      <input type="date" id="data" name="data" required />
+      <button type="submit" id="btn-cadastrar">Cadastrar</button>
+    </form>
+  </section>
+
+  <section id="dados-section">
+    <h2>Dados Cadastrados</h2>
+    <table id="tabela-dados">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Código</th>
+          <th>Quantidade</th>
+          <th>Data</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-corpo"></tbody>
+    </table>
+  </section>
+
+  <div id="modal-editar" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titulo-modal-editar">
+    <div class="modal-conteudo">
+      <button class="modal-fechar" id="fechar-modal-editar" aria-label="Fechar">×</button>
+      <h3 id="titulo-modal-editar">Editar Produto</h3>
+      <form id="form-editar-produto">
+        <input type="hidden" id="editar-id" name="editarId" />
+        <label for="editar-produto-nome">Nome do Produto:</label>
+        <input type="text" id="editar-produto-nome" name="editarProdutoNome" required />
+        <label for="editar-produto-codigo">Código do Produto:</label>
+        <input type="text" id="editar-produto-codigo" name="editarProdutoCodigo" required />
+        <label for="editar-quantidade">Quantidade:</label>
+        <input type="number" id="editar-quantidade" name="editarQuantidade" required />
+        <label for="editar-data">Data de Registro:</label>
+        <input type="date" id="editar-data" name="editarData" required />
+        <div class="modal-acoes">
+          <button type="button" class="btn-cancelar" id="cancelar-edicao">Cancelar</button>
+          <button type="submit" class="btn-salvar" id="salvar-edicao">Salvar Alterações</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="modal-excluir" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titulo-modal-excluir">
+    <div class="modal-conteudo">
+      <button class="modal-fechar" id="fechar-modal-excluir" aria-label="Fechar">×</button>
+      <h3 id="titulo-modal-excluir">Confirmar Exclusão</h3>
+      <p id="texto-confirmacao">Tem certeza que deseja excluir este produto?</p>
+      <input type="hidden" id="excluir-id" />
+      <div class="modal-acoes">
+        <button type="button" class="btn-cancelar" id="cancelar-exclusao">Cancelar</button>
+        <button type="button" class="btn-confirmar" id="confirmar-exclusao">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="previsao-section">
+    <h2>Previsão de Demanda</h2>
+    <form id="form-previsao">
+      <label for="produto-previsao">Produto:</label>
+      <input type="text" id="produto-previsao" name="produtoPrevisao" required />
+      <label for="periodo">Período (em meses):</label>
+      <input type="number" id="periodo" name="periodo" required />
+      <button type="submit" id="btn-prever">Gerar Previsão</button>
+    </form>
+
+    <div id="resultado-previsao" class="resultado">
+      <div id="previsao-lista"></div>
+      <div id="previsao-grafico-area">
+        <canvas id="grafico-previsao" width="600" height="300" aria-label="Gráfico de Previsão"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <h3>Epique do Projeto;</h3>
+      <ul>
+        <li>Plinio Teixeira Vasconcellos</li>
+        <li>Luan Santana dos Santos</li>
+        <li>Kemilly Almeida Moura</li>
+        <li>Edevaldo Ferreira Delgado</li>
+        <li>Deborah Santos Albiach</li>
+        <li>Kauan de Lima Sampaio</li>
+        <li>Gilvan Kauã Saraiva Grangeiro Fernandes</li>
+        <li>Paulo Junior Rodrigues Teodozio</li>
+        <li>Pedro Henrique Araújo da Silva</li>
+        <li>Edilson manoel da Silva</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
